@@ -1,3 +1,3 @@
 package com.larsnorlander.permissionmanager
 
-class PermissionsTests
+inline class Permission(val value: String)
