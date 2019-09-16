@@ -25,4 +25,5 @@ tasks.withType<KotlinCompile> {
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
     languageVersion = "1.3"
+    freeCompilerArgs = listOf("-XXLanguage:+InlineClasses")
 }
