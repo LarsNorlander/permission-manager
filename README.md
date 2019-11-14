@@ -6,7 +6,7 @@ This project is a toy to try implementing a permission manager using ~~Neo4j~~ a
 
 ### Phase 1: Can X do A to Y?
 
-#### Domain Model
+#### Domain
 * An `Entity` is the basic unit.
     * An `Entity` has an `id`.
 * An `Entity` is related to another `Entity` through a `CAN` relationship.
@@ -41,3 +41,11 @@ permissions.delete(gpsSettings)
 permissions.exists(user)
 permissions.exists(gpsSettings)
 ```
+
+### Phase 2: Validations
+
+#### Domain
+* When an `Entity` is deleted, all `CAN` relationships that involve that `Entity` should be deleted 
+as well.
+* You can't create a relationship if either of the `Entities` doesn't exist in the graph.
+* "Can X do A to Y, where X is non-existent?" - No. This is not an exceptional condition.
