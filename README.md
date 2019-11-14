@@ -1,6 +1,6 @@
 # Permission Manager
 
-This project is a toy to try implementing a permission manager using Neo4j.
+This project is a toy to try implementing a permission manager using ~~Neo4j~~ a graph.
 
 ## Stages
 

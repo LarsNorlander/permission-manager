@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	kotlin("jvm") version "1.2.71"
+	kotlin("jvm") version "1.3.50"
 }
 
 group = "com.larsnorlander"
@@ -14,16 +14,16 @@ repositories {
 
 dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
 }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict", "Xinline-classes")
 		jvmTarget = "1.8"
+		freeCompilerArgs = listOf("-Xjsr305=strict", "-XXLanguage:+InlineClasses")
 	}
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    languageVersion = "1.3"
-    freeCompilerArgs = listOf("-XXLanguage:+InlineClasses")
 }
